@@ -1,0 +1,9 @@
+Package: kodi
+Priority: extra
+Section: checkinstall
+Installed-Size: 105972
+Maintainer: root@yusuf-Nitro-AN517-52
+Architecture: amd64
+Version: 20241209-1
+Provides: kodi
+Description: kodi-omega

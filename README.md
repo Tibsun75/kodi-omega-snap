@@ -52,8 +52,8 @@ Kodi Omega Snap is designed for ease of use, with pre-configured settings for IP
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/<your-repo>/kodi-omega.git
-   cd kodi-omega
+   git clone https://github.com/tibsun75/kodi-omega-snap.git
+   cd kodi-omega-snap
    ```
 
 2. Build the snap package:

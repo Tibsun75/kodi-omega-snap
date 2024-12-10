@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Kodi Omega
+Comment=Kodi Omega Snap Version of Open-source media center 
+Exec=kodi-omega
+Icon=${SNAP}/meta/gui/kodi-omega.png
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;Player;TV;
+StartupNotify=true

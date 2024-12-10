@@ -1,0 +1,119 @@
+name: kodi-omega
+version: 21.10.0
+summary: kodi-omega
+description: |
+  Kodi is an open-source media center software that 
+  lets you play movies, music, TV shows, and more.
+  This is an unofficial build that includes all available plugins
+  from the official repository.
+  It comes with a pre installed quite good setting.
+  PulseAudio and X11 are required for smooth operation.
+  Start from terminal with " kodi-omega "
+  For iptv you need a m3u File. The iptv-simple plugin is enabled,
+  you have to configure it in Settings => Addons => my addons =>
+  PVR Clients => IPTV Simple Client.
+  Enjoy your media with Kodi!
+
+confinement: strict
+grade: stable
+base: core24
+source-code: https://dobedefined.xyz
+platforms:
+  amd64:
+
+parts:
+  kodi-omega:
+    plugin: dump
+    source: .
+    stage-packages:
+      - libass9
+      - libcdio19t64 
+      - libgif7
+      - libjpeg-turbo8
+      - libcurl4t64
+      - libldap2
+      - libnghttp2-14
+      - libpsl5t64 
+      - libpython3.12t64
+      - libegl1
+      - libgl1
+      - libxrandr2
+      - libasound2t64
+      - libavahi-client3
+      - libavahi-common3
+      - libbluetooth3
+      - libbluray2
+      - libcec6
+      - libsmbclient0
+      - libexiv2-27
+      - libfstrcmp0
+      - liblcms2-2
+      - liblirc-client0t64
+      - libmicrohttpd12t64
+      - libmysqlclient21
+      - libnfs14
+      - libplist-2.0-4
+      - libpulse0
+      - apulse
+      - libtag1v5-vanilla
+      - libtinyxml2.6.2v5
+      - libva-drm2
+      - libva-x11-2
+      - libva-glx2 
+      - libva-wayland2 
+      - libvdpau1 
+      - libxslt1.1
+      - libshairplay0
+      - libtinyxml2-10
+      - libgl1-mesa-dri
+      - libpulse0
+      - libvdpau-va-gl1
+      - libva2
+      - libva-drm2
+      - libdrm2
+      - i965-va-driver
+      - intel-media-va-driver
+      - libpcre3
+      - vainfo
+      - nano
+
+apps:
+  kodi-omega:
+    command-chain:
+      - snap/launcher.sh # Führt das Skript beim ersten Start aus
+    command: usr/local/lib/kodi/kodi-x11
+    environment:
+      LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu/pulseaudio:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/x86_64-linux-gnu:$SNAP/usr/lib:$SNAP/usr/lib/x86_64-linux-gnu/samba:$SNAP/lib/x86_64-linux-gnu:$LIBGL_DRIVERS_PATH:$SNAP/usr/local/lib/kodi:$LD_LIBRARY_PATH
+      KODI_HOME: $SNAP/usr/local/share/kodi
+      XBMCBIN: $SNAP/usr/local/lib/kodi
+      LIBGL_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
+      PULSE_SERVER: unix:/run/user/1000/pulse/native
+      LIBVA_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
+      LIBVA_DRIVER_NAME: iHD
+
+    plugs:
+      - audio-playback
+      - browser-support
+      - desktop
+      - desktop-legacy
+      - home
+      - network
+      - network-bind
+      - network-status
+      - media-hub
+      - opengl
+      - optical-drive
+      - screen-inhibit-control
+      - unity7
+      - wayland
+      - x11
+      - pulseaudio
+      - hardware-observe
+      - avahi-observe
+      - gsettings
+      - joystick
+      - upower-observe
+      - removable-media
+      
+      
+ 

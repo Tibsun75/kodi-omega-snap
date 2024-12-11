@@ -1,0 +1,101 @@
+# Kodi Media Center language file
+# Addon Name: Sky Rocket
+# Addon id: screensaver.rsxs.skyrocket
+# Addon Provider: Team Kodi
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Main\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-08-22 09:29+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-skyrocket/da_dk/>\n"
+"Language: da_dk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8\n"
+
+msgctxt "Addon Summary"
+msgid "Fireworks show"
+msgstr "Fyrværkeri-show"
+
+msgctxt "Addon Description"
+msgid "The most full-blown fireworks screensaver ever. It has bright lights, smoke trails, clouds that are illuminated by the explosions, sound effects, and plenty of other eye candy."
+msgstr "Den mest fuldstændige fyrværkeri screensaver nogensinde. Det har stærkt lys, røgstier, skyer der oplyses af eksplosionerne, lydeffekter og masser af andet eye candy."
+
+msgctxt "Addon Disclaimer"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr "Dette er en implementering baseret på \"rss-glx\" pauseskærm"
+
+# [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+# [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+# For example, prefer wording as "This new string" instead of "This New String".
+# [Referencing] If a suitable string already exists, reuse it, making a note of where it's used!
+# [Description / location] For example, "#. Description of some setting" used on "#: xbmc/addons/guidialogaddoninfo.cpp"
+# When writing a description or setting, refer to a setting name in quotes. See existing entries for guidance.
+# For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
+msgctxt "#30000"
+msgid "General"
+msgstr "Generel"
+
+msgctxt "#30001"
+msgid "Max rockets"
+msgstr "Maksimal antal raketter"
+
+msgctxt "#30002"
+msgid "Smoke"
+msgstr "Røg"
+
+msgctxt "#30003"
+msgid "Explosion smoke"
+msgstr "Eksplosionsrøg"
+
+msgctxt "#30004"
+msgid "Wind"
+msgstr "Vind"
+
+msgctxt "#30005"
+msgid "Ambient"
+msgstr "Omgivelser"
+
+msgctxt "#30006"
+msgid "Star density"
+msgstr "Stjernetæthed"
+
+msgctxt "#30007"
+msgid "Flare"
+msgstr "Flare"
+
+msgctxt "#30008"
+msgid "Moon"
+msgstr "Måne"
+
+msgctxt "#30009"
+msgid "Moon glow"
+msgstr "Måneskin"
+
+msgctxt "#30010"
+msgid "Clouds"
+msgstr "Skyer"
+
+msgctxt "#30011"
+msgid "Earth"
+msgstr "Jord"
+
+msgctxt "#30012"
+msgid "Illumination"
+msgstr "Oplysning"
+
+msgctxt "#30013"
+msgid "Sound"
+msgstr "Lyd"
+
+msgctxt "#30014"
+msgid "Enable"
+msgstr "Aktiver"
+
+msgctxt "#30015"
+msgid "Volume"
+msgstr "Lydstyrke"

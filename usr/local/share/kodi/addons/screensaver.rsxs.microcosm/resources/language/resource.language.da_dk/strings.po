@@ -1,0 +1,133 @@
+# Kodi Media Center language file
+# Addon Name: Biof
+# Addon id: screensaver.rsxs.microcosm
+# Addon Provider: Team Kodi
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Main\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-11-23 14:48+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-microcosm/da_dk/>\n"
+"Language: da_dk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9\n"
+
+msgctxt "Addon Summary"
+msgid "Phantasmagoria of gooey geometric shapes"
+msgstr "Fantasmagoria af klæbrige geometriske former"
+
+msgctxt "Addon Description"
+msgid "A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect."
+msgstr "En fantasmagoria af klæbrige geometriske former. Denne pauseskærm vil give dig et sprøjtende, vridende skue af 3D-mønstre og livlige farver på din computerskærm. Se en enkelt vridende gizmo, hvis du ikke vil have din computer bliver for varm, eller se kalejdoskoptilstand for den fulde effekt."
+
+msgctxt "Addon Disclaimer"
+msgid "This is an implementation based on \"reallyslickscreensavers\" screensaver"
+msgstr "Dette er en implementering baseret på \"reallyslickscreensavers\" pauseskærm"
+
+# [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+# [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+# For example, prefer wording as "This new string" instead of "This New String".
+# [Referencing] If a suitable string already exists, reuse it, making a note of where it's used!
+# [Description / location] For example, "#. Description of some setting" used on "#: xbmc/addons/guidialogaddoninfo.cpp"
+# When writing a description or setting, refer to a setting name in quotes. See existing entries for guidance.
+# For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
+# Following strings used for addon settings dialog
+#. Main category name on addon settings dialog
+msgctxt "#30000"
+msgid "General"
+msgstr "Generel"
+
+#. Main type selction
+msgctxt "#30001"
+msgid "Type"
+msgstr "Type"
+
+#. Main type selction list entry
+msgctxt "#30002"
+msgid "Regular"
+msgstr "Almindelig"
+
+#. Main type selction list entry
+msgctxt "#30003"
+msgid "Simple"
+msgstr "Simpel"
+
+#. Main type selction list entry
+msgctxt "#30004"
+msgid "Hyperspace"
+msgstr "Hyperspace"
+
+#. Main type selction list entry
+msgctxt "#30005"
+msgid "Advanced"
+msgstr "Avanceret"
+
+#. Advanced category name on addon settings dialog
+msgctxt "#30010"
+msgid "Advanced"
+msgstr "Avanceret"
+
+#. Advanced settings slider (for time in seconds)
+msgctxt "#30011"
+msgid "Kaleidoscope time"
+msgstr "Tid for kaleidoskop"
+
+#. Advanced settings slider (for time in seconds)
+msgctxt "#30012"
+msgid "Single time"
+msgstr "Enkel tid"
+
+#. Advanced settings slider
+msgctxt "#30013"
+msgid "Background"
+msgstr "Baggrund"
+
+#. Advanced settings slider
+msgctxt "#30014"
+msgid "Resolution"
+msgstr "Opløsning"
+
+#. Advanced settings slider
+msgctxt "#30015"
+msgid "Depth"
+msgstr "Dybde"
+
+#. Advanced settings slider
+msgctxt "#30016"
+msgid "Field of view"
+msgstr "Synsfelt"
+
+#. Advanced settings slider
+msgctxt "#30017"
+msgid "Gizmo speed"
+msgstr "Hastighed for gizmo"
+
+#. Advanced settings slider
+msgctxt "#30018"
+msgid "Color speed"
+msgstr "Farvehastighed"
+
+#. Advanced settings slider
+msgctxt "#30019"
+msgid "Camera speed"
+msgstr "Kamerahastighed"
+
+#. Boolean setting value to enable fog mode
+msgctxt "#30020"
+msgid "Fog"
+msgstr "Tåge"
+
+#. To show with slider value
+msgctxt "#30021"
+msgid "{0:d} seconds"
+msgstr "{0:d} sekunder"
+
+#. To show with slider value
+msgctxt "#30022"
+msgid "{0:d} %"
+msgstr "{0:d} %"

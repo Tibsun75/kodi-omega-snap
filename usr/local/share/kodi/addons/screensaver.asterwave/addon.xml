@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<addon
+  id="screensaver.asterwave"
+  version="21.0.0"
+  name="AsterWave"
+  provider-name="Team Kodi">
+  <requires>
+<import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2"/>
+<import addon="kodi.binary.global.gui" minversion="5.15.0" version="5.15.0"/>
+<import addon="kodi.binary.global.filesystem" minversion="1.1.7" version="1.1.8"/>
+<import addon="kodi.binary.instance.screensaver" minversion="2.2.0" version="2.2.0"/></requires>
+  <extension
+    point="xbmc.ui.screensaver"
+    library_linux="screensaver.asterwave.so.21.0.0"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>linux</platform>
+    <license>GPL-2.0-or-later</license>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <screenshot>resources/screenshot-01.jpg</screenshot>
+      <screenshot>resources/screenshot-02.jpg</screenshot>
+      <screenshot>resources/screenshot-03.jpg</screenshot>
+    </assets>
+    <summary lang="da_DK">AsterWave pauseskærm</summary>
+    <summary lang="de_DE">AsterWave Bildschirmschoner</summary>
+    <summary lang="en_GB">AsterWave screensaver</summary>
+    <summary lang="zh_CN">AsterWave 屏幕保护程序</summary>
+    <description lang="da_DK">Et felt af væske, der realistisk deformeres til ændringer i højden ved hjælp af aktuelle fysiske ligninger.[CR][CR]Asteron: Denne kode er tilpasset fra et projekt, jeg lavede til et grafikforløb i 2000. I betatestning har dette vundet en masse ros og jeg håber på, at det erstatter cpBlobs som den mest populære pauseskærm.</description>
+    <description lang="de_DE">Ein Flüssigkeitsfeld, das sich unter Verwendung tatsächlicher physikalischer Gleichungen realistisch zu Höhenänderungen verformt.[CR][CR]Asteron: Dieser Code stammt aus einem Projekt, das ich für einen Grafikkurs im Jahr 2000 durchgeführt habe. Beim Betatest hat dies viel Lob erhalten und ich hoffe, dass er cpBlobs als beliebtesten Bildschirmschoner ersetzt.</description>
+    <description lang="en_GB">A field of liquid that deforms realistically to changes in height using actual physics equations.[CR][CR]Asteron: This code is adapted from a project I did for a graphics course in 2000. In beta testing this has garnered a lot of praise and I hope for it to replace cpBlobs as the most popular screensaver.</description>
+    <description lang="zh_CN">这是一个液体场，使用实际的物理方程，它会随着高度的变化而发生真实的变形。[CR][CR]Asteron：这段代码改编自我2000年为一门图形课程做的一个项目。在beta测试中，这已经获得了很多赞扬，我希望它能取代cpblob成为最流行的屏幕保护程序。</description>
+  </extension>
+</addon>

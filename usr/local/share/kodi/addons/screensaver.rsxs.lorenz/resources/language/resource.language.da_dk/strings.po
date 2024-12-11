@@ -1,0 +1,77 @@
+# Kodi Media Center language file
+# Addon Name: Lorenz
+# Addon id: screensaver.rsxs.lorenz
+# Addon Provider: Team Kodi
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Main\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-10-25 09:32+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-rsxs-lorenz/da_dk/>\n"
+"Language: da_dk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8\n"
+
+msgctxt "Addon Summary"
+msgid "Screensaver visualization of the Lorenz Attractor fractal"
+msgstr "Pauseskærmsvisualisering af Lorenz Attractor fraktal"
+
+msgctxt "Addon Description"
+msgid "This is a 3d realtime visualization of the Lorenz Attractor."
+msgstr "Dette er en 3d realtidsvisualisering af Lorenz Attractor."
+
+msgctxt "Addon Disclaimer"
+msgid "This is an implementation based on \"rss-glx\" screensaver"
+msgstr "Dette er en implementering baseret på \"rss-glx\" pauseskærm"
+
+# [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+# [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+# For example, prefer wording as "This new string" instead of "This New String".
+# [Referencing] If a suitable string already exists, reuse it, making a note of where it's used!
+# [Description / location] For example, "#. Description of some setting" used on "#: xbmc/addons/guidialogaddoninfo.cpp"
+# When writing a description or setting, refer to a setting name in quotes. See existing entries for guidance.
+# For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
+msgctxt "#30000"
+msgid "General"
+msgstr "Generel"
+
+msgctxt "#30001"
+msgid "Points amount"
+msgstr "Antal af punkter"
+
+msgctxt "#30002"
+msgid "Satellites amount"
+msgstr "Antal af satellitter"
+
+msgctxt "#30003"
+msgid "Camera speed"
+msgstr "Kamerahastighed"
+
+msgctxt "#30004"
+msgid "Camera angle"
+msgstr "Kameravinkel"
+
+msgctxt "#30005"
+msgid "Line width"
+msgstr "Linjebredde"
+
+msgctxt "#30006"
+msgid "Satellite line width"
+msgstr "Linjebredde på satellit"
+
+msgctxt "#30007"
+msgid "Line cutoff"
+msgstr "Beskæring af linje"
+
+msgctxt "#30008"
+msgid "Speed"
+msgstr "Hastighed"
+
+msgctxt "#30009"
+msgid "{0:d}°"
+msgstr "{0:d}°"

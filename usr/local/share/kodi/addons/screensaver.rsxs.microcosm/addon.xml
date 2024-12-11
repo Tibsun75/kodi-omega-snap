@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="screensaver.microcosm.biof"
+  version="22.0.2"
+  name="Microcosm"
+  provider-name="Team Kodi">
+  <requires>
+<import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2"/>
+<import addon="kodi.binary.global.gui" minversion="5.15.0" version="5.15.1"/>
+<import addon="kodi.binary.global.filesystem" minversion="1.1.7" version="1.1.9"/>
+<import addon="kodi.binary.instance.screensaver" minversion="2.2.0" version="2.2.0"/></requires>
+  <extension
+    point="xbmc.ui.screensaver"
+    library_linux="screensaver.rsxs.microcosm.so.22.0.2"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>linux</platform>
+    <license>GPL-2.0-or-later</license>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <screenshot>resources/screenshot-01.jpg</screenshot>
+      <screenshot>resources/screenshot-02.jpg</screenshot>
+      <screenshot>resources/screenshot-03.jpg</screenshot>
+      <screenshot>resources/screenshot-04.jpg</screenshot>
+      <screenshot>resources/screenshot-05.jpg</screenshot>
+    </assets>
+    <summary lang="da_DK">Fantasmagoria af klæbrige geometriske former</summary>
+    <summary lang="de_DE">Trugbild zähflüssiger geometrischer Formen</summary>
+    <summary lang="en_GB">Phantasmagoria of gooey geometric shapes</summary>
+    <description lang="da_DK">En fantasmagoria af klæbrige geometriske former. Denne pauseskærm vil give dig et sprøjtende, vridende skue af 3D-mønstre og livlige farver på din computerskærm. Se en enkelt vridende gizmo, hvis du ikke vil have din computer bliver for varm, eller se kalejdoskoptilstand for den fulde effekt.</description>
+    <description lang="en_GB">A phantasmagoria of gooey geometric shapes, this saver will give you a splattering, writhing spectacle of 3D patterns and vibrant colors on your computer screen. Watch a single wriggling gizmo if you don't want your computer to heat up too much, or watch kaleidoscope mode for the full effect.</description>
+    <disclaimer lang="da_DK">Dette er en implementering baseret på &quot;reallyslickscreensavers&quot; pauseskærm</disclaimer>
+    <disclaimer lang="en_GB">This is an implementation based on &quot;reallyslickscreensavers&quot; screensaver</disclaimer>
+  </extension>
+</addon>

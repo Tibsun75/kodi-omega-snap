@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="screensaver.cpblobs"
+  version="21.0.0"
+  name="CpBlobs"
+  provider-name="Team Kodi">
+  <requires>
+<import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2"/>
+<import addon="kodi.binary.global.gui" minversion="5.15.0" version="5.15.0"/>
+<import addon="kodi.binary.global.filesystem" minversion="1.1.7" version="1.1.8"/>
+<import addon="kodi.binary.instance.screensaver" minversion="2.2.0" version="2.2.0"/></requires>
+  <extension
+    point="xbmc.ui.screensaver"
+    library_linux="screensaver.cpblobs.so.21.0.0"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>linux</platform>
+    <license>GPL-2.0-or-later</license>
+    <source>https://github.com/xbmc/screensaver.cpblobs</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <screenshot>resources/screenshot-01.jpg</screenshot>
+      <screenshot>resources/screenshot-02.jpg</screenshot>
+      <screenshot>resources/screenshot-03.jpg</screenshot>
+    </assets>
+    <summary lang="da_DK">Metabolde der bevæger sig</summary>
+    <summary lang="de_DE">Metabälle bewegen sich</summary>
+    <summary lang="en_GB">Metaballs moving around</summary>
+    <summary lang="ko_KR">이리저리 움직이는 메타볼</summary>
+    <summary lang="zh_CN">移动的变形球</summary>
+    <description lang="da_DK">cpBlobs er en pauseskærm, der viser metabolde, der bevæger sig rundt inde i en terning.</description>
+    <description lang="de_DE">cpBlobs ist ein Bildschirmschoner, der Metabälle anzeigt, die sich in einem Würfelraum bewegen.</description>
+    <description lang="en_GB">cpBlobs is a screensaver displaying metaballs moving around inside a cube.</description>
+    <description lang="ko_KR">cpBlobs는 큐브 내부에서 움직이는 메타볼을 표시하는 화면 보호기입니다.</description>
+    <description lang="zh_CN">cpBlobs 是一个显示在立方体中移动的变形球的屏幕保护程序。</description>
+  </extension>
+</addon>

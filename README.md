@@ -1,7 +1,7 @@
 # Kodi Omega Snap Package
 
 This repository contains the necessary files to build and test the **Kodi Omega Snap Package**. Kodi is an open-source media center software that lets you play movies, music, TV shows, and more. This unofficial build includes all available plugins from the official repository and comes pre-installed with a customized configuration for ease of use.
-Building Kodi with Snapcraft in the usual way can be extremely challenging. In this case, Kodi was compiled using the standard method. After running make install, the files were packaged with checkinstall and then extracted into a folder. These files are what you’ll find in this GitHub repository.
+Building Kodi with Snapcraft in the usual way can be extremely challenging. In this case, Kodi was compiled using the standard method. After running make install, the files were packaged with checkinstall to a .deb and then extracted all files into a folder. These files are what you’ll find in this GitHub repository.
 
 ---
 

@@ -1,6 +1,5 @@
 #!/bin/bash
-# This script copies in first start config files by first start
-# off kodi-omega
+# This script copies in first start config files
 set -e
 
 SNAP_USER_DATA="$SNAP_USER_DATA/.kodi"

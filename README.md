@@ -72,7 +72,8 @@ Building Kodi with Snapcraft in the usual way can be extremely challenging. In t
 
 ## Build Instructions
 
-The `Build-Kodi-Omega.bash` script automates the compilation of Kodi Omega from source. Follow these steps:
+The `Build-Kodi-Omega.bash` script automates the compilation of Kodi Omega from source. 
+Follow these steps with Ubuntu 24.04:
 
 1. Navigate to your home directory and execute:
    ```bash

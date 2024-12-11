@@ -1,6 +1,7 @@
 # Kodi Omega Snap Package
 
-This repository contains the necessary files to build and test the **Kodi Omega Snap Package**. Kodi Omega is an open-source media center software that lets you play movies, music, TV shows, and more. This unofficial build includes all available plugins from the official repository and comes pre-installed with a customized configuration for ease of use.
+This repository contains the necessary files to build and test the **Kodi Omega Snap Package**. Kodi is an open-source media center software that lets you play movies, music, TV shows, and more. This unofficial build includes all available plugins from the official repository and comes pre-installed with a customized configuration for ease of use.
+Building Kodi with Snapcraft in the usual way can be extremely challenging. In this case, Kodi was compiled using the standard method. After running make install, the files were packaged with checkinstall and then extracted into a folder. These files are what you’ll find in this GitHub repository.
 
 ---
 
@@ -26,8 +27,6 @@ This repository contains the necessary files to build and test the **Kodi Omega 
 - **Source Code**: [Kodi Repository](https://github.com/xbmc/xbmc)
 - **Snap Name**: kodi-omega
 
-Kodi Omega Snap is designed for ease of use, with pre-configured settings for IPTV, PulseAudio, and X11. It simplifies the setup process by enabling essential plugins and copying pre-installed configuration files during the first launch.
-
 ---
 
 ## Features
@@ -42,9 +41,7 @@ Kodi Omega Snap is designed for ease of use, with pre-configured settings for IP
 
 ## Requirements
 
-- Ubuntu 24.04 or later.
 - Snapcraft installed.
-- Dependencies as listed in `snapcraft.yaml`.
 
 ---
 
@@ -86,21 +83,6 @@ The `Build-Kodi-Omega.bash` script automates the compilation of Kodi Omega from 
    - Clone the Kodi Omega repository.
    - Compile and install Kodi Omega.
    - Build binary addons.
-
----
-
-## Testing
-
-Use the `st.bash` script for testing purposes:
-
-1. Remove the existing snap package.
-2. Build the snap package.
-3. Install the newly built snap package.
-
-Run the following command:
-```bash
-./st.bash
-```
 
 ---
 

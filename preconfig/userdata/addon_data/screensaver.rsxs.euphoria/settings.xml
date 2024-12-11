@@ -1,0 +1,23 @@
+<settings version="2">
+    <setting id="general.type" default="true">0</setting>
+    <setting id="general.texture" default="true">-1</setting>
+    <setting id="advanced.wisps" default="true">5</setting>
+    <setting id="advanced.background" default="true">0</setting>
+    <setting id="advanced.density" default="true">35</setting>
+    <setting id="advanced.speed" default="true">15</setting>
+    <setting id="advanced.feedback" default="true">0</setting>
+    <setting id="advanced.fspeed" default="true">1</setting>
+    <setting id="advanced.fsize" default="true">3</setting>
+    <setting id="advanced.wireframe" default="true">false</setting>
+    <setting id="automodes.PRESET_REGULAR" default="true">true</setting>
+    <setting id="automodes.PRESET_GRID" default="true">true</setting>
+    <setting id="automodes.PRESET_CUBISM" default="true">true</setting>
+    <setting id="automodes.PRESET_BADMATH" default="true">true</setting>
+    <setting id="automodes.PRESET_MTHEORY" default="true">true</setting>
+    <setting id="automodes.PRESET_UHFTEM" default="true">true</setting>
+    <setting id="automodes.PRESET_JACK" default="true">true</setting>
+    <setting id="automodes.PRESET_OVERDOSE" default="true">true</setting>
+    <setting id="automodes.PRESET_NOWHERE" default="true">true</setting>
+    <setting id="automodes.PRESET_ECHO" default="true">true</setting>
+    <setting id="automodes.PRESET_KALEIDOSCOPE" default="true">true</setting>
+</settings>

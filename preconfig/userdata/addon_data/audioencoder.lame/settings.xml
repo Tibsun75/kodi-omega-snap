@@ -1,0 +1,5 @@
+<settings version="2">
+    <setting id="preset" default="true">0</setting>
+    <setting id="bitrate" default="true">192</setting>
+    <setting id="id3version" default="true">2</setting>
+</settings>

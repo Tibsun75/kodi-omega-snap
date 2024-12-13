@@ -3,6 +3,10 @@
 This repository contains the necessary files to build and test the **Kodi Omega Snap Package**. Kodi is an open-source media center software that lets you play movies, music, TV shows, and more. This unofficial build includes all available plugins from the official repository and comes pre-installed with a customized configuration for ease of use.
 Building Kodi with Snapcraft in the usual way can be extremely challenging. In this case, Kodi was compiled using the standard method. After running make install, the files were packaged with checkinstall to a .deb and then extracted all files into a folder. These files are what you’ll find in this GitHub repository.
 
+<a href="https://snapcraft.io/kodi-omega">
+  <img alt="Get it from the Snap Store" src="https://snapcraft.io/en/dark/install.svg" />
+</a>
+
 ---
 
 ## Table of Contents
@@ -126,4 +130,5 @@ StartupNotify=true
   Settings => Addons => My Addons => PVR Clients => IPTV Simple Client
   ```
 - For more details on Snapcraft desktop integration, refer to the [official Snapcraft documentation](https://snapcraft.io/docs/desktop-menu-support).
+  
 

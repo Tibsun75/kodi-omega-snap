@@ -18,7 +18,6 @@ Building Kodi with Snapcraft in the usual way can be extremely challenging. In t
 - [Build Instructions](#build-instructions)
 - [Testing](#testing)
 - [Launcher Script](#launcher-script)
-- [Desktop Integration](#desktop-integration)
 - [Notes](#notes)
 
 ---
@@ -98,27 +97,6 @@ The `launcher.sh` script handles the first-run setup for Kodi Omega by:
 1. Copying pre-configured files into the Snap user directory (`$SNAP_USER_DATA`).
 2. Ensuring the setup process only runs once using a marker file (`.first_run_completed`).
 3. Starting Kodi Omega.
-
----
-
-## Desktop Integration
-
-Desktop integration is handled by the `kodi-omega.desktop` file located in `/snap/gui`. This file ensures that Kodi Omega can be launched directly from the GNOME or KDE menu.
-
-### `kodi-omega.desktop` File
-
-```desktop
-[Desktop Entry]
-Version=1.0
-Name=Kodi Omega
-Comment=Kodi Omega Snap Version of Open-source media center
-Exec=kodi-omega
-Icon=${SNAP}/meta/gui/kodi-omega.png
-Terminal=false
-Type=Application
-Categories=AudioVideo;Video;Player;TV;
-StartupNotify=true
-```
 
 ---
 

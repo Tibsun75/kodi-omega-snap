@@ -15,7 +15,7 @@ description: |
   Enjoy your media with Kodi!
   Known Issues: Vaapi ist not working
 
-confinement: strict
+confinement: strict #<=== change to classic if you want vaapi, vdpau etc.
 grade: stable
 base: core24
 source-code: https://github.com/Tibsun75/kodi-omega-snap

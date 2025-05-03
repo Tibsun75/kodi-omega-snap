@@ -1,7 +1,8 @@
 # Kodi Omega Snap Package
 
-This repository contains the necessary files to build and test the **Kodi Omega Snap Package**. Kodi is an open-source media center software that lets you play movies, music, TV shows, and more. This unofficial build includes all available plugins from the official repository.
-Building Kodi with Snapcraft in the usual way can be extremely challenging. 
+This repository contains the necessary files to build and test the **Kodi Omega Snap Package**. 
+Kodi is an open-source media center software that lets you play movies, music, TV shows, and more. This unofficial build includes all available plugins from the official repository.
+
 <a href="https://snapcraft.io/kodi-omega">
   <img alt="Get it from the Snap Store" src="https://snapcraft.io/en/dark/install.svg" />
 </a>
@@ -87,23 +88,6 @@ Follow these steps with Ubuntu 24.04:
 
 ---
 
-## Launcher Script
-
-The `launcher.sh` script handles the first-run setup for Kodi Omega by:
-
-1. Copying pre-configured files into the Snap user directory (`$SNAP_USER_DATA`).
-2. Ensuring the setup process only runs once using a marker file (`.first_run_completed`).
-3. Starting Kodi Omega.
-
----
-
-## Notes
-
-- The pre-configured settings are copied from the `preconfig` directory within the snap package.
-- To use IPTV, ensure you have an M3U file ready and configure the **IPTV Simple Client** plugin via:
-  ```
-  Settings => Addons => My Addons => PVR Clients => IPTV Simple Client
-  ```
 - For more details on Snapcraft desktop integration, refer to the [official Snapcraft documentation](https://snapcraft.io/docs/desktop-menu-support).
   
 

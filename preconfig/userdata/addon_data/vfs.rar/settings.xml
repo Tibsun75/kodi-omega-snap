@@ -1,9 +1,0 @@
-<settings version="2">
-    <setting id="asks_to_unpack" default="true">true</setting>
-    <setting id="usercheck_for_password" default="true">false</setting>
-    <setting id="standard_password_1" default="true" />
-    <setting id="standard_password_2" default="true" />
-    <setting id="standard_password_3" default="true" />
-    <setting id="standard_password_4" default="true" />
-    <setting id="standard_password_5" default="true" />
-</settings>

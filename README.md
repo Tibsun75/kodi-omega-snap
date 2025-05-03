@@ -16,9 +16,6 @@ Kodi is an open-source media center software that lets you play movies, music, T
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Build Instructions](#build-instructions)
-- [Testing](#testing)
-- [Launcher Script](#launcher-script)
-- [Notes](#notes)
 
 ---
 

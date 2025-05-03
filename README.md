@@ -61,7 +61,7 @@ Kodi is an open-source media center software that lets you play movies, music, T
 
 3. Install the snap package:
    ```bash
-   sudo snap install kodi-omega_21.10.0_amd64.snap --dangerous
+   sudo snap install kodi-omega_21.2.0_amd64.snap --dangerous
    ```
 
 4. Launch Kodi Omega:

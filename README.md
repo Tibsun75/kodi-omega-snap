@@ -1,8 +1,7 @@
 # Kodi Omega Snap Package
 
-This repository contains the necessary files to build and test the **Kodi Omega Snap Package**. Kodi is an open-source media center software that lets you play movies, music, TV shows, and more. This unofficial build includes all available plugins from the official repository and comes pre-installed with a customized configuration for ease of use.
-Building Kodi with Snapcraft in the usual way can be extremely challenging. In this case, Kodi was compiled using the standard method. After running make install, the files were packaged with checkinstall to a .deb and then extracted all files into a folder. These files are what you’ll find in this GitHub repository.
-
+This repository contains the necessary files to build and test the **Kodi Omega Snap Package**. Kodi is an open-source media center software that lets you play movies, music, TV shows, and more. This unofficial build includes all available plugins from the official repository.
+Building Kodi with Snapcraft in the usual way can be extremely challenging. 
 <a href="https://snapcraft.io/kodi-omega">
   <img alt="Get it from the Snap Store" src="https://snapcraft.io/en/dark/install.svg" />
 </a>
@@ -24,7 +23,7 @@ Building Kodi with Snapcraft in the usual way can be extremely challenging. In t
 
 ## Overview
 
-- **Version**: 21.10.0
+- **Version**: 21.20.0
 - **Base**: Core24
 - **Platform**: amd64
 - **Source Code**: [Kodi Repository](https://github.com/xbmc/xbmc)
@@ -35,10 +34,8 @@ Building Kodi with Snapcraft in the usual way can be extremely challenging. In t
 ## Features
 
 - Includes all official plugins.
-- Pre-installed configuration files for a streamlined first launch.
 - Full desktop integration with GNOME/KDE.
-- Easy setup for IPTV with the **IPTV Simple Client** plugin.
-- PulseAudio and X11 support for smooth operation.
+- PulseAudio and X11 support
 
 ---
 

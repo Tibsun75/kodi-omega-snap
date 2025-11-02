@@ -1,6 +1,6 @@
 
 name: kodi-omega
-version: 21.2.0
+version: 21.3.0
 summary: kodi-omega
 description: |
   Unofficial Kodi-Omega Snap
@@ -13,9 +13,9 @@ description: |
   Start from terminal with " kodi-omega ".
   For iptv you need a m3u File. 
   Enjoy your media with Kodi!
-  Known Issues: Vaapi ist not working
+  
 
-confinement: strict #<=== change to classic if you want vaapi, vdpau etc.
+confinement: strict
 grade: stable
 base: core24
 source-code: https://github.com/Tibsun75/kodi-omega-snap
@@ -36,7 +36,7 @@ parts:
       - -DENABLE_INTERNAL_FMT=ON
       - -DENABLE_INTERNAL_FLATBUFFERS=ON
       - -DENABLE_VAAPI=ON
-      - -DENABLE_VDPAU=OFF 
+      - -DENABLE_VDPAU=ON 
       - -DCMAKE_BUILD_TYPE=Release
 
     build-packages:
@@ -133,6 +133,8 @@ parts:
       - libpcre3-dev
       - rapidjson-dev
       - libavcodec-dev
+      - libdav1d-dev 
+      - libavahi-compat-libdnssd-dev      
 
     stage-packages:
       - libass9
@@ -191,6 +193,9 @@ parts:
       - libigdgmm12
       - libfmt9
       - libspdlog-dev
+      - libdav1d-dev 
+      - libavahi-compat-libdnssd1
+            
             
     override-build: |
       craftctl default
@@ -199,21 +204,36 @@ parts:
       # Adjust Kodi path in binary
       sed -i 's|/usr/local|$SNAP/usr/local|g' $SNAPCRAFT_PART_INSTALL/usr/local/bin/kodi
       
-      # build all addos 
+      # build all addons 
       make -j$(getconf _NPROCESSORS_ONLN) -C tools/depends/target/binary-addons PREFIX=$SNAPCRAFT_PART_INSTALL/usr/local
+
       
+layout:
+  /usr/lib/x86_64-linux-gnu/dri:
+    bind: $SNAP/usr/lib/x86_64-linux-gnu/dri
+  /usr/share/glvnd/egl_vendor.d:
+    bind: $SNAP/usr/share/glvnd/egl_vendor.d
+  /usr/share/drirc.d:
+    bind: $SNAP/usr/share/drirc.d
 
 apps:
   kodi-omega:
-      
     command: usr/local/lib/kodi/kodi-x11
     environment:
-      # do not split this line
+      LIBGL_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
+      LIBVA_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
+      __EGL_VENDOR_LIBRARY_DIRS: $SNAP/usr/share/glvnd/egl_vendor.d
+      LIBGL_ALWAYS_INDIRECT: "0"
+      # bei neueren Intel-GPUs (ab Gen9):
+      MESA_LOADER_DRIVER_OVERRIDE: "iris"
+      # für ältere (bis Gen8):
+      # MESA_LOADER_DRIVER_OVERRIDE: "i965"
       LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu/vdpau:$SNAP/usr/lib/x86_64-linux-gnu/pulseaudio:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/x86_64-linux-gnu:$SNAP/usr/lib:$SNAP/usr/lib/x86_64-linux-gnu/samba:$SNAP/lib/x86_64-linux-gnu:$LIBGL_DRIVERS_PATH:$SNAP/usr/local/lib/kodi:$LD_LIBRARY_PATH
+      
+      # muss hier genau dieser Pfad sein , sonst stürzt kodi ab
+      # hier speichert kodi die userdaten wie addon Einstellungen usw. 
       KODI_HOME: $SNAP/usr/local/share/kodi
       XBMCBIN: $SNAP/usr/local/lib/kodi
-      LIBVA_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
-      LIBGL_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
       PULSE_SERVER: unix:/run/user/1000/pulse/native
       
     plugs:
@@ -239,4 +259,5 @@ apps:
       - joystick
       - upower-observe
       - removable-media
+
 

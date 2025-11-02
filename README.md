@@ -82,6 +82,7 @@ Follow these steps with Ubuntu 24.04:
    - Clone the Kodi Omega repository.
    - Compile and install Kodi Omega.
    - Build binary addons.
+   - Create a .deb package with all plugisn
 
 ---
 

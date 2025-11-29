@@ -21,7 +21,6 @@ Kodi is an open-source media center software that lets you play movies, music, T
 
 ## Overview
 
-- **Version**: 21.20.0
 - **Base**: Core24
 - **Platform**: amd64
 - **Source Code**: [Kodi Repository](https://github.com/xbmc/xbmc)

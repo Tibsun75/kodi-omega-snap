@@ -1,5 +1,5 @@
 name: kodi-omega
-version: 21.3.01
+version: 21.3.04
 summary: kodi-omega
 description: |
   This is an unofficial build which includes all available plugins from the 
@@ -8,6 +8,7 @@ description: |
   On the first start, Kodi will prompt you to enable or disable available addons — this may take a few minutes.
   Alternatively, you can simply press s, exit Kodi, then restart kodi-omega. This will disable all addons by default, allowing you to activate only the ones you actually need afterward.
   For IPTV, you will need an M3U playlist file or a membership with services such as Zattoo, Waipu, Pluto or similar providers.
+
 
 confinement: strict
 grade: stable
@@ -234,6 +235,10 @@ apps:
       
     plugs:
       - audio-playback
+      - avahi-control
+      - avahi-observe
+      - bluetooth-control
+      - bluez
       - browser-support
       - desktop
       - desktop-legacy
@@ -245,15 +250,26 @@ apps:
       - opengl
       - optical-drive
       - screen-inhibit-control
+      - screencast-legacy
       - unity7
       - wayland
       - x11
       - pulseaudio
       - hardware-observe
-      - avahi-observe
       - gsettings
       - joystick
       - upower-observe
       - removable-media
-      - shutdown
+      - dvb
+      - dbus
+      - display-control
+      - login-session-control
       - login-session-observe
+      - log-observe
+      - maliit
+      - mount-observe
+      - pipewire
+      - power-control
+      - raw-input
+      - raw-usb
+      - system-observe

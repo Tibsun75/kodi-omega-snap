@@ -33,6 +33,11 @@ Kodi is an open-source media center software that lets you play movies, music, T
 - Includes all official plugins.
 - Full desktop integration with GNOME/KDE.
 - PulseAudio and X11 support
+- Give Permissions for Plugs in Gnome Settings / Applications or KDE/Discover for Plugs
+- Or Enable Permissions with
+    ```bash
+   snap connections kodi-omega | awk '$3 == "-" {print $2}' | while read plug; do snap connect $plug; done
+   ```
 
 ---
 

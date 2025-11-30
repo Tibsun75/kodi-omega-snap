@@ -1,19 +1,19 @@
-
 name: kodi-omega
-version: 21.3.0
+version: 21.3.01
 summary: kodi-omega
 description: |
-  Unofficial Kodi-Omega Snap
-  Kodi is an open-source media center software that 
-  lets you play movies, music, TV shows, and more.
-  This is an unofficial build that includes all available plugins
-  from the official repository.
-  PulseAudio and X11 are required for smooth operation.
-  It doesn't work with wayland.
-  Start from terminal with " kodi-omega ".
-  For iptv you need a m3u File. 
-  Enjoy your media with Kodi!
+  This is an unofficial build which includes all available plugins from the 
+  Kodi-Omega official repository.
+  You can start Kodi via terminal using kodi-omega or by selecting it from the menu.
+  On the first start, Kodi will prompt you to enable or disable available addons — this may take a few minutes.
+  Alternatively, you can simply press s, exit Kodi, then restart kodi-omega. This will disable all addons by default, allowing you to activate only the ones you actually need afterward.
+  For IPTV, you will need an M3U playlist file or a membership with services such as Zattoo, Waipu, Pluto or similar providers.
+  Note: On some systems, the full power menu (Reboot, Suspend, Shutdown) may not appear.
+  To enable these options, you need to manually connect the Snap plugs:
+  Open a Terminal and copy paste :
   
+  sudo snap connect kodi-omega:shutdown
+  sudo snap connect kodi-omega:login-session-observe
 
 confinement: strict
 grade: stable
@@ -134,7 +134,7 @@ parts:
       - rapidjson-dev
       - libavcodec-dev
       - libdav1d-dev 
-      - libavahi-compat-libdnssd-dev      
+      - libavahi-compat-libdnssd-dev
 
     stage-packages:
       - libass9
@@ -224,8 +224,9 @@ apps:
       LIBVA_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
       __EGL_VENDOR_LIBRARY_DIRS: $SNAP/usr/share/glvnd/egl_vendor.d
       LIBGL_ALWAYS_INDIRECT: "0"
+      # Fix für Kubuntu/KDE Open Suse Leap etc, kein erzwungener Mesa-Treiber
       # bei neueren Intel-GPUs (ab Gen9):
-      MESA_LOADER_DRIVER_OVERRIDE: "iris"
+      # MESA_LOADER_DRIVER_OVERRIDE: "iris"
       # für ältere (bis Gen8):
       # MESA_LOADER_DRIVER_OVERRIDE: "i965"
       LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu/vdpau:$SNAP/usr/lib/x86_64-linux-gnu/pulseaudio:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/x86_64-linux-gnu:$SNAP/usr/lib:$SNAP/usr/lib/x86_64-linux-gnu/samba:$SNAP/lib/x86_64-linux-gnu:$LIBGL_DRIVERS_PATH:$SNAP/usr/local/lib/kodi:$LD_LIBRARY_PATH
@@ -235,6 +236,7 @@ apps:
       KODI_HOME: $SNAP/usr/local/share/kodi
       XBMCBIN: $SNAP/usr/local/lib/kodi
       PULSE_SERVER: unix:/run/user/1000/pulse/native
+         
       
     plugs:
       - audio-playback
@@ -259,5 +261,5 @@ apps:
       - joystick
       - upower-observe
       - removable-media
-
-
+      - shutdown
+      - login-session-observe

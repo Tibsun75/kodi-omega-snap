@@ -52,7 +52,7 @@ Kodi is an open-source media center software that lets you play movies, music, T
 
 2. Build the snap package:
    ```bash
-   snapcraft
+   snapcraft -v
    ```
 
 3. Install the snap package:

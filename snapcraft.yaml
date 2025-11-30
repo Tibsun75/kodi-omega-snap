@@ -8,12 +8,6 @@ description: |
   On the first start, Kodi will prompt you to enable or disable available addons — this may take a few minutes.
   Alternatively, you can simply press s, exit Kodi, then restart kodi-omega. This will disable all addons by default, allowing you to activate only the ones you actually need afterward.
   For IPTV, you will need an M3U playlist file or a membership with services such as Zattoo, Waipu, Pluto or similar providers.
-  Note: On some systems, the full power menu (Reboot, Suspend, Shutdown) may not appear.
-  To enable these options, you need to manually connect the Snap plugs:
-  Open a Terminal and copy paste :
-  
-  sudo snap connect kodi-omega:shutdown
-  sudo snap connect kodi-omega:login-session-observe
 
 confinement: strict
 grade: stable

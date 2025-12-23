@@ -1,5 +1,5 @@
 name: kodi-omega
-version: 21.3.04
+version: 21.3.07
 summary: kodi-omega
 description: |
   This is an unofficial build which includes all available plugins from the 
@@ -190,6 +190,12 @@ parts:
       - libspdlog-dev
       - libdav1d-dev 
       - libavahi-compat-libdnssd1
+      - python3-pil
+      - python3-pip
+      - libjpeg8
+      - libfreetype6
+      - libopenjp2-7
+      - libwebp7
             
             
     override-build: |
@@ -225,6 +231,7 @@ apps:
       # für ältere (bis Gen8):
       # MESA_LOADER_DRIVER_OVERRIDE: "i965"
       LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu/vdpau:$SNAP/usr/lib/x86_64-linux-gnu/pulseaudio:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/x86_64-linux-gnu:$SNAP/usr/lib:$SNAP/usr/lib/x86_64-linux-gnu/samba:$SNAP/lib/x86_64-linux-gnu:$LIBGL_DRIVERS_PATH:$SNAP/usr/local/lib/kodi:$LD_LIBRARY_PATH
+      PYTHONPATH: $SNAP/usr/lib/python3.12/site-packages:$SNAP/usr/lib/python3/dist-packages
       
       # muss hier genau dieser Pfad sein , sonst stürzt kodi ab
       # hier speichert kodi die userdaten wie addon Einstellungen usw. 
@@ -273,3 +280,6 @@ apps:
       - raw-input
       - raw-usb
       - system-observe
+      - shutdown
+
+

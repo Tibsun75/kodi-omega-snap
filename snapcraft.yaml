@@ -1,33 +1,70 @@
 name: kodi-omega
-version: 21.3.10
+version: 21.3.12
 summary: kodi-omega
 description: |
   This is an unofficial build which includes all available plugins from the official repository.
   This Snap contains the **Omega** branch and supports x11 and wayland.
-  You can start Kodi via terminal using `kodi-omega`or by selecting it from the menu.
-  On the first start, Kodi will prompt you to enable or disable available addons , 
+  You can start Kodi via terminal using `kodi-omega` or by selecting it from the menu.
+  On the first start, Kodi will prompt you to enable or disable available addons,
   this may take a few minutes.
-  Alternatively, you can simply _press "s" _, exit Kodi, then restart kodi-omega. 
+  Alternatively, you can simply _press "s"_, exit Kodi, then restart kodi-omega.
   This will disable all addons by default, allowing you to activate only the ones you actually need afterward.
   **Make sure to enable the necessary permissions** for this Snap in GNOME (Settings → Apps) or KDE (Discover → Kodi-Omega → Change Permissions), otherwise Kodi may not work as expected.
-  You can also manage permissions via terminal by listing them with " snap connections kodi-omega " and enabling missing ones using " snap connect kodi-omega:dvb " for DVB access .
-  Or simply connect all : 
+  You can also manage permissions via terminal by listing them with "snap connections kodi-omega" and enabling missing ones using "snap connect kodi-omega:dvb" for DVB access.
+  Or simply connect all:
   `snap connections kodi-omega | awk '$3 == "-" {print $2}' | while read plug; do sudo snap connect $plug; done`
   Or try my snap-permissions-manager script:
   https://github.com/Tibsun75/snap-permission-manager
   For IPTV, you will need an M3U playlist file or a membership with services such as Zattoo, Waipu, Pluto or similar providers.
+  Bluray KEYDB.cfg must be here : ~/config/aacs , because of lack support bd+ for linux ... maybe will not work for all
   Enjoy your media with Kodi Omega!
-
+# ==================================Änderungen===============================================================
+# Umgestellt auf GPU: extensions [gpu] → gpu-2404 / mesa-2404
+# Wayland: Wrapper verlinkt Host-Socket nach $XDG_RUNTIME_DIR
+# Audio: PulseAudio – Canonical-Trick PULSE_SERVER
+# CEC und LIRC dazu
+# bluray und dvd untersützung dazu
+# KEYDB.cfg muss in ~/config/aacs liegen
+# ==========================================================================================================
 confinement: strict
 grade: stable
 base: core24
 source-code: https://github.com/Tibsun75/kodi-omega-snap
+
+plugs:
+  dot-config-aacs:
+    interface: personal-files
+    read:
+      - $HOME/.config/aacs
+
 platforms:
   amd64:
 
+layout:
+  /usr/share/X11/xkb:
+    bind: $SNAP/usr/share/X11/xkb
 
 parts:
+  wrappers:
+    plugin: nil
+    override-build: |
+      mkdir -p "$CRAFT_PART_INSTALL/bin"
+      cat > "$CRAFT_PART_INSTALL/bin/wayland-socket.sh" << 'EOF'
+      #!/bin/bash
+      set -euo pipefail
+      if [[ -n "${XDG_RUNTIME_DIR:-}" && -n "${WAYLAND_DISPLAY:-}" ]]; then
+        host_sock="/run/user/$(id -u)/${WAYLAND_DISPLAY}"
+        snap_sock="${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}"
+        if [[ -S "$host_sock" && ! -e "$snap_sock" ]]; then
+          ln -sf "$host_sock" "$snap_sock" 2>/dev/null || true
+        fi
+      fi
+      exec "$@"
+      EOF
+      chmod +x "$CRAFT_PART_INSTALL/bin/wayland-socket.sh"
+
   kodi-omega:
+    after: [wrappers]
     plugin: cmake
     source: https://github.com/xbmc/xbmc.git
     source-branch: Omega
@@ -39,9 +76,12 @@ parts:
       - -DENABLE_INTERNAL_FMT=ON
       - -DENABLE_INTERNAL_FLATBUFFERS=ON
       - -DENABLE_VAAPI=ON
-      - -DENABLE_VDPAU=ON 
+      - -DENABLE_VDPAU=ON
       - -DCMAKE_BUILD_TYPE=Release
-
+      - -DENABLE_ALSA=ON
+      - -DENABLE_CEC=ON
+      - -DENABLE_LIRCCLIENT=ON
+      - -DCMAKE_CXX_FLAGS=-Wno-error=double-promotion
     build-packages:
       - debhelper
       - autoconf
@@ -136,10 +176,13 @@ parts:
       - libpcre3-dev
       - rapidjson-dev
       - libavcodec-dev
-      - libdav1d-dev 
+      - libdav1d-dev
       - libavahi-compat-libdnssd-dev
-      
-      # Wayland support
+      - libcec-dev
+      - liblirc-dev
+      - libflatbuffers-dev
+      - flatbuffers-compiler
+      # Wayland
       - libwayland-dev
       - libwayland-egl1
       - libwayland-cursor0
@@ -148,7 +191,6 @@ parts:
       - libinput-dev
       - libgbm-dev
       - waylandpp-dev
-      
     stage-packages:
       - libass9
       - libcdio19t64
@@ -159,9 +201,6 @@ parts:
       - libnghttp2-14
       - libpsl5t64
       - libpython3.12t64
-      - libegl1
-      - libgl1
-      - libglx0
       - libxrandr2
       - libasound2t64
       - libavahi-client3
@@ -170,6 +209,7 @@ parts:
       - libbluray2
       - libcec6
       - libsmbclient0
+      - samba-libs
       - libexiv2-27
       - libfstrcmp0
       - liblcms2-2
@@ -182,31 +222,12 @@ parts:
       - apulse
       - libtag1v5-vanilla
       - libtinyxml2.6.2v5
-      - libva-drm2
-      - libva-x11-2
-      - libva-glx2
-      - libva-wayland2
-      - libvdpau1
       - libxslt1.1
       - libshairplay0
       - libtinyxml2-10
-      - libgl1-mesa-dri
-      - libpulse0
-      - libvdpau-va-gl1
-      - libva2
-      - libva-drm2
-      - libva-dev
-      - libdrm2
-      - i965-va-driver
-      - i965-va-driver-shaders
-      - intel-media-va-driver
-      - mesa-va-drivers
       - libpcre3
-      - libglu1-mesa
-      - libigdgmm12
       - libfmt9
-      - libspdlog-dev
-      - libdav1d-dev 
+      - libdav1d7
       - libavahi-compat-libdnssd1
       - python3-pil
       - python3-pip
@@ -214,9 +235,16 @@ parts:
       - libfreetype6
       - libopenjp2-7
       - libwebp7
-      
-      # Extra for Wayland/VAAPI
-      - va-driver-all
+      # DVD
+      - libdvdcss2
+      - libdvdnav4
+      - libdvdread8t64
+      # Blu-ray
+      - libaacs0
+      - libbdplus0
+      # Tastatur / XKB
+      - xkb-data
+      # Wayland-Client
       - libwayland-client0
       - libwayland-egl1
       - libwayland-cursor0
@@ -225,51 +253,27 @@ parts:
       - libwayland-client++1
       - libwayland-cursor++1
       - libwayland-egl++1
-            
-            
     override-build: |
       craftctl default
       cd $CRAFT_PART_SRC
-          
-      # Adjust Kodi path in binary
-      # sed -i 's|/usr/local|$SNAP/usr/local|g' $SNAPCRAFT_PART_INSTALL/usr/local/bin/kodi
-      sed -i 's|/usr/local|$SNAP/usr/local|g' $SNAPCRAFT_PART_INSTALL/usr/local/bin/kodi*
-      
-      # build all addons 
-      make -j$(getconf _NPROCESSORS_ONLN) -C tools/depends/target/binary-addons PREFIX=$SNAPCRAFT_PART_INSTALL/usr/local
+      sed -i 's|/usr/local|$SNAP/usr/local|g' $CRAFT_PART_INSTALL/usr/local/bin/kodi*
+      # ======== Addons bauen =========
+      make -j$(getconf _NPROCESSORS_ONLN) -C tools/depends/target/binary-addons PREFIX=$CRAFT_PART_INSTALL/usr/local
+      # ==============================
 
-      
-layout:
-  /usr/lib/x86_64-linux-gnu/dri:
-    bind: $SNAP/usr/lib/x86_64-linux-gnu/dri
-  /usr/share/glvnd/egl_vendor.d:
-    bind: $SNAP/usr/share/glvnd/egl_vendor.d
-  /usr/share/drirc.d:
-    bind: $SNAP/usr/share/drirc.d
-    
 apps:
   kodi-omega:
     command: usr/local/bin/kodi
+    extensions: [gpu]
+    command-chain:
+      - bin/wayland-socket.sh
     environment:
-      LIBGL_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
-      LIBVA_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
-      __EGL_VENDOR_LIBRARY_DIRS: $SNAP/usr/share/glvnd/egl_vendor.d
-      LIBGL_ALWAYS_INDIRECT: "0"
-      # Fix für Kubuntu/KDE Open Suse Leap etc, kein erzwungener Mesa-Treiber
-      # bei neueren Intel-GPUs (ab Gen9):
-      # MESA_LOADER_DRIVER_OVERRIDE: "iris"
-      # für ältere (bis Gen8):
-      # MESA_LOADER_DRIVER_OVERRIDE: "i965"
-      LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu/vdpau:$SNAP/usr/lib/x86_64-linux-gnu/pulseaudio:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/x86_64-linux-gnu:$SNAP/usr/lib:$SNAP/usr/lib/x86_64-linux-gnu/samba:$SNAP/lib/x86_64-linux-gnu:$LIBGL_DRIVERS_PATH:$SNAP/usr/local/lib/kodi:$LD_LIBRARY_PATH
+      WAYLAND_DISPLAY: $WAYLAND_DISPLAY
+      LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu/vdpau:$SNAP/usr/lib/x86_64-linux-gnu/pulseaudio:$SNAP/usr/lib/x86_64-linux-gnu/samba:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/x86_64-linux-gnu:$SNAP/usr/lib:$SNAP/lib/x86_64-linux-gnu:$SNAP/usr/local/lib/kodi:$LD_LIBRARY_PATH
       PYTHONPATH: $SNAP/usr/lib/python3.12/site-packages:$SNAP/usr/lib/python3/dist-packages
-      
-      # muss hier genau dieser Pfad sein , sonst stürzt kodi ab
-      # hier speichert kodi die userdaten wie addon Einstellungen usw. 
       KODI_HOME: $SNAP/usr/local/share/kodi
       XBMCBIN: $SNAP/usr/local/lib/kodi
-      PULSE_SERVER: unix:/run/user/1000/pulse/native
-         
-      
+      PULSE_SERVER: unix:$XDG_RUNTIME_DIR/../pulse/native
     plugs:
       - audio-playback
       - avahi-control
@@ -279,11 +283,11 @@ apps:
       - browser-support
       - desktop
       - desktop-legacy
+      - dot-config-aacs
       - home
       - network
       - network-bind
       - network-status
-      - media-hub
       - opengl
       - optical-drive
       - screen-inhibit-control
@@ -298,18 +302,14 @@ apps:
       - upower-observe
       - removable-media
       - dvb
-      - dbus
       - display-control
       - login-session-control
       - login-session-observe
       - log-observe
-      - maliit
       - mount-observe
-      - pipewire
       - power-control
       - raw-input
       - raw-usb
       - system-observe
       - shutdown
-
-
+      - udisks2

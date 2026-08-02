@@ -1,5 +1,5 @@
 name: kodi-omega
-version: 21.3.12
+version: 21.3.13
 summary: kodi-omega
 description: |
   This is an unofficial build which includes all available plugins from the official repository.
@@ -16,7 +16,7 @@ description: |
   Or try my snap-permissions-manager script:
   https://github.com/Tibsun75/snap-permission-manager
   For IPTV, you will need an M3U playlist file or a membership with services such as Zattoo, Waipu, Pluto or similar providers.
-  Bluray KEYDB.cfg must be here : ~/config/aacs , because of lack support bd+ for linux ... maybe will not work for all
+  Bluray KEYDB.cfg must be here : ~/snap/kodi-omega/current/.config/aacs/ , because of lack support bd+ for linux ... maybe will not work for all
   Enjoy your media with Kodi Omega!
 # ==================================Änderungen===============================================================
 # Umgestellt auf GPU: extensions [gpu] → gpu-2404 / mesa-2404
@@ -24,18 +24,12 @@ description: |
 # Audio: PulseAudio – Canonical-Trick PULSE_SERVER
 # CEC und LIRC dazu
 # bluray und dvd untersützung dazu
-# KEYDB.cfg muss in ~/config/aacs liegen
+# KEYDB.cfg muss in ~/snap/kodi-omega/current/.config/aacs/ liegen
 # ==========================================================================================================
 confinement: strict
 grade: stable
 base: core24
 source-code: https://github.com/Tibsun75/kodi-omega-snap
-
-plugs:
-  dot-config-aacs:
-    interface: personal-files
-    read:
-      - $HOME/.config/aacs
 
 platforms:
   amd64:
@@ -47,6 +41,7 @@ layout:
 parts:
   wrappers:
     plugin: nil
+    # Wrapper Script zum setzen der Display Umgebungsvariable für Wayland
     override-build: |
       mkdir -p "$CRAFT_PART_INSTALL/bin"
       cat > "$CRAFT_PART_INSTALL/bin/wayland-socket.sh" << 'EOF'
@@ -81,7 +76,7 @@ parts:
       - -DENABLE_ALSA=ON
       - -DENABLE_CEC=ON
       - -DENABLE_LIRCCLIENT=ON
-      - -DCMAKE_CXX_FLAGS=-Wno-error=double-promotion
+      - -DCMAKE_CXX_FLAGS=-Wno-error=double-promotion   # Warungen nicht als Fehler behandeln
     build-packages:
       - debhelper
       - autoconf
@@ -273,7 +268,7 @@ apps:
       PYTHONPATH: $SNAP/usr/lib/python3.12/site-packages:$SNAP/usr/lib/python3/dist-packages
       KODI_HOME: $SNAP/usr/local/share/kodi
       XBMCBIN: $SNAP/usr/local/lib/kodi
-      PULSE_SERVER: unix:$XDG_RUNTIME_DIR/../pulse/native
+      PULSE_SERVER: unix:$XDG_RUNTIME_DIR/../pulse/native   #canonical trick übernommen
     plugs:
       - audio-playback
       - avahi-control
@@ -283,7 +278,6 @@ apps:
       - browser-support
       - desktop
       - desktop-legacy
-      - dot-config-aacs
       - home
       - network
       - network-bind
